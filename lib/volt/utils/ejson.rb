@@ -65,7 +65,7 @@ module Volt
 
           [key, value]
         end.to_h
-      elsif (defined?(VoltTime) && VoltTime === obj)
+      elsif (defined?(VoltTime) && VoltTime === obj || Time === obj)
         {'$date' => obj.to_i * 1_000}
       elsif OTHER_VALID_CLASSES.any? {|klass| obj.is_a?(klass) }
         obj
